@@ -1,0 +1,52 @@
+EightQueens.py
+
+How to use
+You can modify the argument passed with the number of the board for build the solution
+$ python3 EightQueens.py [BOARD_SIZE]
+
+Building and running the application in docker
+$ docker-compose up
+
+Executing tests
+$ pytest test.py -s
+
+That's all!
+
+Code Description
+
+EightQueens.py
+Starting point of the application, here only the argument is validated and it is checked how long the application lasts.
+
+Service.py
+The application is decomposed in layers, in service you can define logic of the application and use DB objects.
+
+BuildOptions.py
+Accord to the size of the board, all the possible combinations of the first movement are defined in this bidimensional array.
+
+ByThread.py
+This is the core of the application, here with base on the combinations the algorithm finds zeros in the base matrix and  
+prebuilded options are used to discard N combinations. Just use matrix addition to do that.
+
+Crud.py
+It's the section that uses the model and can implement operations with the database.
+
+Model.py
+How the information will be stored in the database and how the ORM will use the class to map that information.
+
+Utils.py
+All teh time we need to implement operations that are very useful in our programs, here you can define those useful functions to be used anywhere.
+
+test.py and pytest.ini
+Here are tests to validate the information generated for the application, it's used a ini file to define a local sqlite database.
+
+Docker
+
+Dockerfile
+It's used to define the requirements of the conteiner, OS, libraries, applications and files. 
+In the end, a command is defined to execute the python program.
+
+requirements.txt
+pip uses this file to install the application dependencies, it is copied with the Dockerfile
+
+docker-compose.yml
+It's a yaml file, it define how our application is defined an how it is interconnected.
