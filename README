@@ -5,7 +5,7 @@ You can modify the argument passed with the number of the board for build the so
 $ python3 EightQueens.py [BOARD_SIZE]
 
 Building and running the application in docker
-$ docker-compose up
+$ docker-compose up --build
 
 Executing tests
 $ pytest test.py -s
